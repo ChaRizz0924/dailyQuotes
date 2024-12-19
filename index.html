@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="manifest.json" />
+    <title>Good For Your Life</title>
+    <link rel="shortcut icon" href="yes.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+   
+</head>
+
+<body class="column is-mobile" style="background-image: url(background.jpg); background-size: cover;"><br><br>
+    <div class="container is-max-desktop notification has-background-link-light"><br>
+
+        <h1 class="title content has-text-centered">Welcome Downies! -.-</h1><br>
+
+            <p class="subtitle">Feeling down? You're not alone. Welcome to <strong>Good For Your Life</strong> Website, a safe space for those navigating life's challenges. Find support, guidance, and hope here.</p>
+                <button type="submit"  class="button is-primary is-outlined container is-max-desktop" onclick="advice()">Click for an Advice</button>
+        <br><br>
+        
+        <h5 class="subtitle"><b>A PIECE OF ADVICE: </b><span id="display" class=""></span></h5>
+
+    </div><br><br><br><br><br><br><br><br>
+
+    <footer class="footer content has-text-centered has-background-link-dark">
+        <p><strong>Owned by </strong>
+            <a href="https://www.facebook.com/shades.of.ghey/">Ghenaissa Mundia</a></p>
+    </footer>
+
+    <script>
+        function advice() {
+            fetch("https://api.adviceslip.com/advice")
+                .then(yes => yes.json())
+                .then(sulod => {
+                    console.log(sulod);
+                    
+                    let advice = sulod.slip.advice.toUpperCase();
+                    // let image = sulod.image;
+
+                    document.getElementById('display').innerHTML = advice;
+
+                    // images.src = image;
+                    // images.alt = "Yes or No";
+
+                    // document.getElementById('displayImage').appendChild(images);
+                  
+                })
+                .catch(error => console.log("error"));
+        }
+        
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js').then( () => {
+            console.log('Service Worker Registered')
+   })
+ })
+}
+    </script>
+</body>
+</html>

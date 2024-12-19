@@ -1,0 +1,16 @@
+{
+    "name": "Daily Quotes",
+    "short_name": "Ghenai",
+    "icons": [
+    {
+      "src": "yes.jpg",
+      "sizes": "72x72",
+      "type": "image/png"
+    }
+    ],
+    "theme_color": "#1e2226",
+    "background_color": "#1065a8",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/https://ghenaiquotes.com"
+  }
